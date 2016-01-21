@@ -1,4 +1,8 @@
-if type(varA) == str or type(varB) == str:
+#simple comparison program
+varA = raw_input("Enter a variable for A: ")    #something is wrong here
+varB = raw_input("Enter a variable for B: ")    #something is wrong here
+
+if type(varA) == str or type(varB) == str:    #determines whether variables are strings first
     print ("string involved")
 elif varA > varB:
     print ("bigger")
