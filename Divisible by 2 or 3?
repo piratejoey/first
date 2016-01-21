@@ -1,0 +1,15 @@
+#test if a number is divisible by 2 or 3
+x = int(raw_input("enter a number: "))
+if x%2 == 0:    #if x(remainder of)2 (comparative/Boolean equals) 0 (colon), then
+	if x%3 == 0:
+		print ("")    #skip a line    
+		print ("divisible by 2 and 3")
+	else:    #if none of the above were met it skips to this
+            print ("")    #skip a line
+            print ("divisible by 2 but not 3")
+elif x%3 == 0:    #if none of the above were met it skips to this and compares again
+	print ("")    #skip a line
+	print ("divisible by 3 but not 2")
+else:    #if none of the above were met it skips to this
+	print ("")    #skip a line
+	print ("not divisible by 2 or 3")
