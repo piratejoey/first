@@ -9,6 +9,9 @@ def clip(lo, x, hi):
      - x, otherwise
     '''
 
-    return max(lo, min(hi, x))    #this is confusing but correct
+    return max(lo, min(hi, x))
+    #return the minimum of (hi, x), but the maximum of (that_result, lo)
+    
     #alternatively return min(max(x, lo), hi)
+    #return the maximum of (x, lo), but the minimum of (first_result, hi)
 clip(3, 10, 5)
