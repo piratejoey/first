@@ -1,0 +1,9 @@
+#Assignment to find the area+perimeter of a polygon rounded to 4 decimal places when given n(number of sides) and s(length)
+
+import math
+def polysum(n, s):
+    a = (0.25*(n*s**2))/(math.tan(math.pi/n))
+    p = (n*s)**2
+    return float("{0:.4f}" .format(a+p))    #return result rounded to 4 decimal places
+  
+#print polysum(1, 2)
