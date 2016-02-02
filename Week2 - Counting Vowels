@@ -1,0 +1,11 @@
+def countV(s):    #creating a function, not really needed for the assignment
+    total=0
+    for letter in s.lower():    #for each letter input  in s, take the lowercase of it
+        if letter == "a" or letter == "e" or letter == "i" or letter == "u":    #would like to simplify this at some point
+            total += 1    #add vowels to total
+    return total
+    
+a = countV(raw_input("input a letter: "))    #convert input to a variable
+    
+print "Number of vowels: " + str(a)    #call the function and ouput the result
+
