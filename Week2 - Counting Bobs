@@ -1,0 +1,8 @@
+count = 0
+name = "bob"
+s = str("bobobaaggbobeb")    #letters to be looked at, could change this to an input
+for a in range(0, len(s)-1):    #for each letter in a range of the first letter to the last
+  if s[a:a+3] == name:    #then take a slice of s, 3 letters in a row(still need to play around with this to understand better how it works
+        count += 1
+    
+print "Number of bob's equals: " + str(count)
