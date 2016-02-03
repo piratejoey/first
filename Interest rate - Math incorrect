@@ -1,0 +1,21 @@
+#I don't know why the math isn't coming out correctly
+
+balance = 4213
+annualInterestRate = 0.2
+monthlyPaymentRate = 0.04
+
+month = 0
+total = 0
+
+   
+while month < 12:    
+    minPay = round(monthlyPaymentRate*balance,2)
+    balance = round(balance + (annualInterestRate/12.0) * balance,2) - minPay
+   
+    month += 1
+    total += minPay
+    
+    print "Month: " + str(month)
+    print "Minimum monthly payment: " + str(minPay)     #alternate format to output as two decimal places instead of rounding first "{0:.2f}" .format(minPay)
+    print "Remaining balance: " + str(balance)    #alternate format to output as two decimal places instead of rounding first"{0:.2f}" .format(balance)
+    
