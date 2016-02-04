@@ -1,0 +1,26 @@
+balance = 32000
+annualInterestRate = 0.2
+
+payment = 0
+month = 0
+moInRa = annualInterestRate/12
+payLB = balance / 12.0
+payUB = (balance * ((1 + moInRa)**12)) / 12
+
+while month < 13:
+    month += 1
+    remMonth = 13 - month
+
+    
+    if month > 1:
+        balance = balance - payment
+        balance = balance + balance*moInRa
+    
+    
+    
+     
+    while balance - (payment*remMonth) > 0 or payment <= payLB or payment >= payUB:
+        payment += .01
+        
+        
+print payment
