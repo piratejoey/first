@@ -25,7 +25,7 @@ while month < 13:
     
      
     while payment <= balance - (payment*remMonth) and payment <= payUB:
-        payment += 10
+        payment += .01
         
         
         
