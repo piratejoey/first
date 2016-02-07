@@ -10,17 +10,26 @@ payUB = (balance * ((1 + moInRa)**12)) / 12
 while month < 13:
     month += 1
     remMonth = 13 - month
-
     
+
     if month > 1:
         balance = balance - payment
         balance = balance + balance*moInRa
+        
+        
+    else:
+        balance = balance + balance*moInRa
+        payment = payLB    #payment is being calculated from the original balance instead of the new balance calculated the line above. why?
     
     
     
      
-    while balance - (payment*remMonth) > 0 or payment <= payLB or payment >= payUB:
-        payment += .01
+    while payment <= balance - (payment*remMonth) and payment <= payUB:
+        payment += 10
+        
+        
         
         
 print payment
+        
+print("Lowest Payment: ") + str(payment)
