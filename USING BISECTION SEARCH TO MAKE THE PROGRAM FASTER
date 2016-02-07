@@ -1,0 +1,21 @@
+balance = 320000
+annualInterestRate = 0.2
+origBalance = balance
+MoInRa = annualInterestRate/12
+payLB = balance/12.0
+payUB = (balance*((1+MoInRa)**12))/12.0
+payment = 0
+
+while balance > 0.02 or balance < -0.02:
+    balance = origBalance
+    payment = (payLB + payUB)/2
+    for a in range(12):
+        balance = balance - payment
+        balance = balance + (balance*MoInRa)
+        
+    if balance > 0:
+            payLB = payment
+    if balance < 0:
+            payUB = payment
+            
+print "Lowest Payment: "+str(round(payment,2))
