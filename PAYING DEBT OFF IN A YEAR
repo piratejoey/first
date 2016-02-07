@@ -1,13 +1,16 @@
-balance = 3329
-month = 0
+#the lowest monthly payment that will pay off all debt in under 1 year, payment must be in a quantity of 10
+
+balance = 3329    #input statement
+month = 0    #input statement
+
+
 annualInterestRate = 0.2
 payment = 0
 moInRa = annualInterestRate/12
 
-
-for a in range(12):
-    reMonth = 13 - month
-    month += 1
+for a in range(12):    #cycle through 12 months, 0-11
+    reMonth = 13 - month    #find the remaining month count, starting with 12
+    month += 1    #count months
     balance = balance - payment
     balance = balance + balance*moInRa
     
