@@ -7,3 +7,14 @@ def lenRecur(aStr):
         return lenRecur(aStr[1:]) + 1    #slices string until it reaches "", increases return value by 1 each time
 
 print lenRecur("hello")    #example input
+
+
+"""Problem 6 was to first create an iterative count without using len() function, written as follows
+
+def lenIter(aStr):
+    length = 0
+    for i in aStr:
+        length += 1
+    return length
+    
+"""
