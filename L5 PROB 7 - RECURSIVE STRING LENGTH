@@ -1,0 +1,9 @@
+#string slicing to recursively count the length of a string
+
+def lenRecur(aStr):
+    if aStr == "":    #ends the recursion(will be an infinite loop otherwise) or counts 0 if no characters are in the string. also can be expressed "if not aStr:"
+        return 0
+    else:
+        return lenRecur(aStr[1:]) + 1    #slices string until it reaches "", increases return value by 1 each time
+
+print lenRecur("hello")    #example input
