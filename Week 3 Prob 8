@@ -1,0 +1,18 @@
+def isIn(char, aStr):
+    middle = len(aStr)/2
+    if char == "":
+        return False
+    while middle > 0:
+        middle = len(aStr)/2
+        
+        if aStr[middle] > char:
+            aStr = aStr[:middle]
+        elif aStr[middle] < char:
+            aStr = aStr[middle:]
+        else:
+            break
+            
+    if char == aStr[middle]:
+        return True
+    else:
+        return False
