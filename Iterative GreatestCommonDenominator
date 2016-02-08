@@ -1,0 +1,16 @@
+#reducing the smallest number(divisor) by 1 until it can be divided into a or b with no remainder
+
+def gcdIter(a, b):
+    if a > b:
+        div = b    #set variable to be able to reduce divisor while keeping b constant
+        while a%div != 0 or b%div != 0: b    #loop while the remainder of either a or b divided by the divisor has a remainder
+            div -= 1    #reduce divisor by 1
+        return div
+    else:
+        div = a
+        while b%div != 0 or a%div != 0:
+            div -=1    
+        return div
+        
+        
+gcdIter(361, 418)    #test input returns 19
