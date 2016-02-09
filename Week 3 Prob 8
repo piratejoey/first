@@ -15,7 +15,7 @@ def isIn(char, aStr):    #define function
         return True
         
     
-    if char > midChar:n    #if the character value is higher than the middle character in the string
+    if char > midChar:    #if the character value is higher than the middle character in the string
         return isIn(char,aStr[middle+1:])    #recursive call to the last half of the string minus the middle character
     
     elif char < midChar:    #if the character value is lower than the middle character in the string
