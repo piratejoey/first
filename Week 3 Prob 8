@@ -1,3 +1,30 @@
+#Using bisection search to determine if a character is in a string using recursion when the string is organized alphabetically
+#i wonder what would be needed to alphabatize a string beforehand
+
+def isIn(char, aStr):    #define function
+    
+    if char == "" or aStr == "":    #if a value is empty
+        return False
+    elif len(aStr) == 1:    #if the available string only contains one character
+        aStr == char
+    
+    middle = len(aStr)/2    #variable assigned to the equation computing the center of the string
+    midChar = aStr[middle]    #Assigns variable to the center of the string
+    
+    if char == midChar:    #if char equals the middle character
+        return True
+        
+    
+    if char > midChar:n    #if the character value is higher than the middle character in the string
+        return isIn(char,aStr[middle+1:])    #recursive call to the last half of the string minus the middle character
+    
+    elif char < midChar:    #if the character value is lower than the middle character in the string
+        return isIn(char,aStr[:middle])    #recursive call to the first half of the string minus the middle character
+
+
+""""
+iterative way to solve this that i worked out beforehand
+
 def isIn(char, aStr):
     middle = len(aStr)/2
     if char == "":
@@ -16,3 +43,5 @@ def isIn(char, aStr):
         return True
     else:
         return False
+        
+"""
