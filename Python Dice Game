@@ -1,0 +1,31 @@
+from random import randint
+
+#python dice game
+
+def diceRoll():
+    return randint(1,6)
+    
+die1 = diceRoll()
+die2 = diceRoll()
+
+print "rolling the dice..."
+print die1
+print die2
+
+
+while True:
+    
+    die1 = diceRoll()
+    die2 = diceRoll()
+    
+    answer = raw_input("You rolled a " + str(die1+die2) + ". Would you like to roll again? ")
+    if answer.lower() != "y" and answer.lower() != "yes":
+        break
+
+    print ""
+    print "rolling the dice..."
+    print die1
+    print die2
+
+print ""
+print "Whatever. You gay anyway."   
