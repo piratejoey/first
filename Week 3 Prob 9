@@ -1,0 +1,29 @@
+#Using a wrapper function in a recursive call checking for a semordnilap(word or a phrase that spells a different word when backwards) ("semordnilap" is a semordnilap of "palindromes").
+
+#defining wrapper function
+def semordnilapWrapper(str1, str2):
+    # A single-length string cannot be semordnilap
+    if len(str1) == 1 or len(str2) == 1:
+        return False
+
+    # Equal strings cannot be semordnilap
+    if str1 == str2:
+        return False
+#returns function with rules already assigned to it
+    return semordnilap(str1, str2)
+     
+     
+#define function that will compare the strings  
+def semordnilap(str1, str2):
+    #automatically cannot be a semordnilap if string lengths are not equal. Should probably have been assigned in the wrapper function
+    if len(str1) != len(str2):
+        return False
+       
+    if str1 == str2:
+        return True
+    
+    #leaves string1 alone but turns string2 backwards
+    return semordnilap(str1[:], str2[::-1])
+    
+#string compare calls the wrapper function    
+semordnilapWrapper("live","evil")
