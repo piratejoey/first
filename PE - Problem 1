@@ -3,6 +3,7 @@
 Find the sum of all the multiples of 3 or 5 below 1000.
 """
 
+multiple3=0
 multiple5 = 0
 total = 0
 
@@ -10,9 +11,10 @@ total = 0
 while multiple3 + 3 < 1000:
     multiple3 += 3
     total += multiple3
+    if multiple3%5 == 0:
+        total -= multiple3
 while multiple5 + 5 < 1000:
     multiple5 += 5
     total += multiple5
         
 print total
-    
