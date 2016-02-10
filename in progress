@@ -1,0 +1,10 @@
+num = 36
+count = num -1
+
+while num > 1:
+    if num%count != 0:
+        count -= 1
+    if num%count ==0:
+        print "prime"
+
+            
