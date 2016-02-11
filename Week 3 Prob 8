@@ -1,8 +1,9 @@
 #Using bisection search to determine if a character is in a string using recursion when the string is organized alphabetically
 #i wonder what would be needed to alphabatize a string beforehand
-"""edit: This would turn it into a list. code isn't a list and then sort the list, though it would need to be turned back into a string afterward for this code
-       aStr = list(aStr)
-       aStr.sort()
+"""edit: this is how to do that
+       aStr = list(aStr)    #turns string into a list
+       aStr.sort()    #sorts list
+       aStr = "".join(aStr)    #turns list back into a string, whatever is inside of the quotes is put in the spaces, for example " ".join
 """
 
 def isIn(char, aStr):    #define function
