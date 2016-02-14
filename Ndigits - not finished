@@ -1,0 +1,8 @@
+def ndigits(x):
+    while x > 9:
+        count += 1
+        ndigits(x-10)
+    
+      
+    
+print ndigits(777)
