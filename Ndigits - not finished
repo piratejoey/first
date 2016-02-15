@@ -1,8 +1,7 @@
 def ndigits(x):
+    count = 0
     while x > 9:
+        x /= 10
         count += 1
-        ndigits(x-10)
-    
-      
-    
-print ndigits(777)
+    return count+1
+        
