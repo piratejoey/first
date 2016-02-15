@@ -1,0 +1,10 @@
+#pickle is used to save complex data structures. variables of any type - Strings, lists, dictionaries
+
+import pickle
+favorite_color = {"lion": "yellow", "kitty": "red"}
+#save it (wb means write binary)
+pickle.dump)favoriite_color, open("save.txt", "wb"))
+
+import pickle
+#load it back(rb means read binary)
+favoriate_color = pickle.load(open("save.txt", "rb"))
