@@ -1,0 +1,38 @@
+#BOB - The most basic form of learning AI
+
+while True:
+
+#the answer to a question that isn't found
+    found = False
+    
+#get question from input
+    question = raw_input(">").lower()
+
+#open a file
+    fi = open("C:\Users\jxw3498\Desktop\Python\data.txt", "r")
+
+#get the data
+    data = fi.readlines()
+
+#close opened file
+    fi.close()
+
+#check each line in the text file
+    for li in data:
+    #if the bit before the ":" is the correct answer
+        if(li.split(":")[0].lower() == question):
+        #print the part after the colon
+            print(li.split(":")[1])
+        #the answer was found
+            found = True
+
+#if the answer wasn't found in the file
+    if found == False:
+    #ask the user for the answer
+        answer = raw_input("How would you answer that? : ")
+    #open a file to append to
+        fi = open("C:\Users\jxw3498\Desktop\Python\data.txt", "a")
+    #add the new question/answer to the file
+        fi.write("\n" + question + ":" + answer)
+    #close opened file
+		fi.close()
