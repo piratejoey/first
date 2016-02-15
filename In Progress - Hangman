@@ -1,0 +1,32 @@
+#word for player to guess. could create a document later and have the program randomly choose from it for the word instead
+word = raw_input("Enter a word to guess: ")
+
+#use to check the correct answer against the word
+answer = ""
+
+#lives left
+lives = 6
+
+#letters that have been guessed
+lettersGuessed = ""
+
+while True:
+    for char in word:
+        if char in lettersGuessed:
+			#trailing comma stops new line from being printed
+            print char,
+        else:
+			#trailing comma stops new line from being printed
+            print "_",
+            
+    if answer == word:
+        print("You win, the word was " + word + ".")
+        break
+    guess = raw_input("\nYou have "+str(lives)+" lives left. Guess a letter: ")
+    if guess in word and len(guess) == 1:
+        lettersGuessed += guess
+    else:
+        lives -= 1
+        if lives == 0:
+	   print("Game Over. You're Dead.")
+	   break
