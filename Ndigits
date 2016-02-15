@@ -1,0 +1,23 @@
+global count
+count = 0
+
+def ndigits(x):
+    global count
+    if x <= 9:
+        return count+1
+    else:
+        num = x/10
+        count += 1
+        return ndigits(num)
+
+
+#non-recursive way
+def ndigits(x):
+    count = 0
+    while x > 9:
+        x /= 10
+        count += 1
+    return count+1
+    
+
+        

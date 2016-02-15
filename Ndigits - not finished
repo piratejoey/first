@@ -1,7 +1,0 @@
-def ndigits(x):
-    count = 0
-    while x > 9:
-        x /= 10
-        count += 1
-    return count+1
-        
