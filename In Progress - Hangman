@@ -1,32 +1,125 @@
-#word for player to guess. could create a document later and have the program randomly choose from it for the word instead
-word = raw_input("Enter a word to guess: ")
+import random
+import string
 
-#use to check the correct answer against the word
-answer = ""
+lettersGuessed=""
 
-#lives left
-lives = 6
+WORDLIST_FILENAME = "C:\Users\jxw3498\Desktop\Python\words.txt"
 
-#letters that have been guessed
-lettersGuessed = ""
+def loadWords():
+    """
+    Returns a list of valid words. Words are strings of lowercase letters.
+    
+    Depending on the size of the word list, this function may
+    take a while to finish.
+    """
+    print "Loading word list from file..."
+    # inFile: file
+    inFile = open(WORDLIST_FILENAME, 'r', 0)
+    # line: string
+    line = inFile.readline()
+    # wordlist: list of strings
+    wordlist = string.split(line)
+    print "  ", len(wordlist), "words loaded."
+    return wordlist
 
-while True:
-    for char in word:
-        if char in lettersGuessed:
-			#trailing comma stops new line from being printed
-            print char,
-        else:
-			#trailing comma stops new line from being printed
-            print "_",
-            
-    if answer == word:
-        print("You win, the word was " + word + ".")
-        break
-    guess = raw_input("\nYou have "+str(lives)+" lives left. Guess a letter: ")
-    if guess in word and len(guess) == 1:
-        lettersGuessed += guess
+def chooseWord(wordlist):
+    """
+    wordlist (list): list of words (strings)
+
+    Returns a word from wordlist at random
+    """
+    return random.choice(wordlist)
+
+wordlist = loadWords()
+	
+
+def isWordGuessed(secretWord, lettersGuessed):
+    secretWord = list(secretWord)
+    count = 0
+        
+    while count < 100:
+        count += 1
+        for letter in lettersGuessed:
+            if letter in secretWord:
+                secretWord.remove(letter)
+    
+    if secretWord == []:
+        return True
     else:
-        lives -= 1
-        if lives == 0:
-	   print("Game Over. You're Dead.")
-	   break
+        return False
+	
+
+
+
+def getGuessedWord(secretWord, lettersGuessed):
+    Guess = []
+    for char in secretWord:
+        if char in lettersGuessed:           
+            Guess += char,
+        else:
+            Guess += "_ ",
+    return "".join(Guess)
+
+
+
+def getAvailableLetters(lettersGuessed):
+    '''
+    lettersGuessed: list, what letters have been guessed so far
+    returns: string, comprised of letters that represents what letters have not
+      yet been guessed.
+    '''
+    available = list("abcdefghijklmnopqrstuvwxyz")
+    count = 0
+        
+    while count < 100:
+        for letter in lettersGuessed:
+            count += 1
+            if letter in available:
+                available.remove(letter)
+				
+	return "".join(available)
+    
+
+def hangman(secretWord):
+
+    lettersGuessed = ""
+    
+    print secretWord
+    '''
+    secretWord: string, the secret word to guess.
+
+    Starts up an interactive game of Hangman.
+
+    * At the start of the game, let the user know how many 
+      letters the secretWord contains.
+
+    * Ask the user to supply one guess (i.e. letter) per round.
+
+    * The user should receive feedback immediately after each guess 
+      about whether their guess appears in the computers word.
+
+    * After each round, you should also display to the user the 
+      partially guessed word so far, as well as letters that the 
+      user has not yet guessed.
+
+    Follows the other limitations detailed in the problem write-up.
+
+    '''
+
+
+    print "Welcome to the game, Hangman!"
+    print " I am thinking of a word that is " + str(len(secretWord)) + " letters long."
+    
+    while isWordGuessed(secretWord, lettersGuessed) == False:
+
+        print "Available letters: " + getAvailableLetters(lettersGuessed)
+	
+        lettersGuessed += raw_input("Please guess a letter: ")
+	
+        print getGuessedWord(secretWord,lettersGuessed)
+    
+    
+        
+       
+secretWord = chooseWord(wordlist).lower()	
+hangman(secretWord)
