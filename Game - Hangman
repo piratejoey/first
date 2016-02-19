@@ -2,8 +2,9 @@ import random
 import string
 
 lettersGuessed=""
+letters = list("abcdefghijklmnopqrstuvwxyz")
 
-WORDLIST_FILENAME = "C:\Users\jxw3498\Desktop\Python\words.txt"
+WORDLIST_FILENAME = "C:\Users\pirat\Desktop\Python\Hangman\words.txt"
 
 def loadWords():
     """
@@ -80,7 +81,7 @@ def getAvailableLetters(lettersGuessed):
 def hangman(secretWord):
 
     lettersGuessed = ""
-    
+    lives = 8
     print secretWord
     '''
     secretWord: string, the secret word to guess.
@@ -127,8 +128,15 @@ def hangman(secretWord):
 		
 	guess = raw_input("Please guess a letter: ")
 	
+
+        if guess not in letters and len(guess) == 1:
+            print "Please only guess letters"
+            
+        elif len(guess) != 1:
+            print "Please only guess one letter at a time"
+	
 		
-	if guess in lettersGuessed:
+	elif guess in lettersGuessed:
 	   print " Oops! You've already guessed that letter:"
 		
 	elif guess in secretWord:
