@@ -21,7 +21,7 @@ def nfruits(type, pattern):
                 #add one to dictionary key corresponding to value of bought
                 type[bought] += 1
    
-   #added one back to each not consumed, since the last apple eaten was not bought afterward. this is wrong i think, need to fix
+    #added one back to each not consumed. couldn't think of an uncomplicated way to stop the loop beforehand, so i just ran the       reverse of the last loop once, leaving the apple consumed but none bought afterward.
     for bought in type:
         if consumed != bought:
             type[bought] -= 1
