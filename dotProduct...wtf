@@ -1,0 +1,9 @@
+def dotProduct(listA, listB):
+    x=0
+    for a in range(len(listA)-2):
+        for i in listA:
+            x += listA[i-1]*listB[i-1]
+    return x
+        
+    
+print dotProduct([1, 2, 3],[4, 5, 6])
