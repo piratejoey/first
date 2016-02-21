@@ -1,0 +1,12 @@
+def nfruits(type, pattern):
+    for consumed in pattern:
+        type[consumed] -= 1
+        
+        for bought in type:
+            if consumed != bought:
+                type[bought] += 1
+    for bought in type:
+        if consumed != bought:
+            type[bought] -= 1
+    
+    return max(type.values())
