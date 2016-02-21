@@ -1,10 +1,27 @@
+"""
+Python is an MIT student who loves fruits. He carries different types of fruits (represented by capital letters) daily from his house to the MIT campus to eat on the way. But the way he eats fruits is unique. After each fruit he eats (except the last one which he eats just on reaching the campus), he takes a 30 second break in which he buys 1 fruit of each type other than the one he just had. Cobra, his close friend, one day decided to keep a check on Python. He followed him on his way to MIT campus and noted down the type of fruit he ate in the form of a string pattern (Eg.: 'AABBBBCA'). Can you help Cobra determine the maximum quantity out of the different types of fruits that is present with Python when he has reached the campus?
+
+For example, if the initial quantities are {'A': 1, 'B': 2, 'C': 3} and the string pattern is 'AC' then
+
+'A' is consumed, updated values are {'A': 0, 'B': 2, 'C': 3}
+Python buys 'B' and 'C', updated values are {'A': 0, 'B': 3, 'C': 4}
+'C' is consumed, updated values are {'A': 0, 'B': 3, 'C': 3}
+"""
+
 def nfruits(type, pattern):
+    #for each type in pattern
     for consumed in pattern:
+        #subtract one from the that dictionary key that corresponds to the value of consumed
         type[consumed] -= 1
         
+        #for every value in type
         for bought in type:
+            #first check to make sure this is not an apple we just ate
             if consumed != bought:
+                #add one to dictionary key corresponding to value of bought
                 type[bought] += 1
+   
+   #added one back to each not consumed, since the last apple eaten was not bought afterward. this is wrong i think, need to fix
     for bought in type:
         if consumed != bought:
             type[bought] -= 1
